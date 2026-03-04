@@ -53,5 +53,6 @@ header:
     - '.terraform.lock.hcl'
     - deploy/kubernetes/dolphinscheduler/README.md.gotmpl
     - .idea/vcs.xml
+    - '.metals/**'
 
   comment: on-failure
