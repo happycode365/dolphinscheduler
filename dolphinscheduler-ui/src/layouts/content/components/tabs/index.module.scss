@@ -1,0 +1,11 @@
+.tabs-container {
+  padding: 0 16px;
+  background-color: var(--n-color);
+  border-bottom: 1px solid var(--n-border-color);
+  .n-tabs {
+    .n-tabs-tab {
+      padding: 0 16px;
+      height: 40px;
+    }
+  }
+}

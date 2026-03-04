@@ -19,6 +19,7 @@ import { defineComponent, onMounted, watch, toRefs, ref } from 'vue'
 import { NLayout, NLayoutContent, NLayoutHeader, useMessage } from 'naive-ui'
 import NavBar from './components/navbar'
 import SideBar from './components/sidebar'
+import Tabs from './components/tabs'
 import { useDataList } from './use-dataList'
 import { useLocalesStore } from '@/store/locales/locales'
 import { useRouteStore } from '@/store/route/route'
@@ -121,10 +122,21 @@ const Content = defineComponent({
           )}
           <NLayoutContent
             native-scrollbar={false}
-            style='padding: 16px 22px'
-            contentStyle={'height: 100%'}
+            style='display: flex; flex-direction: column; height: 100%'
+            contentStyle={'display: flex; flex-direction: column; height: 100%'}
           >
-            <router-view key={this.currentRoute.fullPath} />
+            <Tabs />
+            <div style='flex: 1; padding: 16px 22px; overflow: auto;'>
+              <router-view
+                v-slots={{
+                  default: ({ Component, route }: any) => (
+                    <keep-alive max={10}>
+                      <Component key={route.fullPath} />
+                    </keep-alive>
+                  )
+                }}
+              />
+            </div>
           </NLayoutContent>
         </NLayout>
       </NLayout>
