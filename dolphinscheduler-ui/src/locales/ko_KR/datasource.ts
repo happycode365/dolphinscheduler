@@ -57,10 +57,8 @@ export default {
   jdbc_connect_parameters: 'JDBC 연결 파라미터',
   principal_tips: 'Principal을 입력하세요',
   krb5_conf_tips: 'Kerberos 인증 파라미터 java.security.krb5.conf를 입력하세요',
-  keytab_username_tips:
-    'Kerberos 인증 파라미터 login.user.keytab.username을 입력하세요',
-  keytab_path_tips:
-    'Kerberos 인증 파라미터 login.user.keytab.path를 입력하세요',
+  keytab_username_tips: 'Kerberos 인증 파라미터 login.user.keytab.username을 입력하세요',
+  keytab_path_tips: 'Kerberos 인증 파라미터 login.user.keytab.path를 입력하세요',
   format_tips: '형식으로 입력하세요',
   connection_parameter: '연결 파라미터',
   user_name: '사용자명',
