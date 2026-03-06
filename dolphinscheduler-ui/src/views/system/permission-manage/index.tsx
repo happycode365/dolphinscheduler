@@ -15,8 +15,8 @@
  * limitations under the License.
  */
 
-import { defineComponent, onMounted, ref } from 'vue'
-import { NButton, NSpace, NDataTable, NCheckbox, NCheckboxGroup, useMessage } from 'naive-ui'
+import { defineComponent, ref } from 'vue'
+import { NSpace, NDataTable, NCheckbox, NCheckboxGroup, useMessage } from 'naive-ui'
 import { useI18n } from 'vue-i18n'
 import Card from '@/components/card'
 
