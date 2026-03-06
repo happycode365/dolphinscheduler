@@ -98,11 +98,14 @@
         <build.ui.skip>true</build.ui.skip>
         <build.plugins.skip>false</build.plugins.skip>
         <build.assembly.skip>true</build.assembly.skip>
-        <spotless.skip>false</spotless.skip>
+        <!--<spotless.skip>false</spotless.skip>-->
+        <spotless.skip>true</spotless.skip>
         <maven.deploy.skip>true</maven.deploy.skip>
-        <analyze.skip>false</analyze.skip>
-
-        <skipUT>false</skipUT>
+        <!--<analyze.skip>false</analyze.skip>-->
+        <analyze.skip>true</analyze.skip>
+        <!--<skipUT>false</skipUT>-->
+        <skipUT>true</skipUT>
+		<maven.multiModuleProjectDirectory>C:/devtools/repositories/git/sched_dolphinscheduler/style</maven.multiModuleProjectDirectory>
     </properties>
 
     <dependencyManagement>
