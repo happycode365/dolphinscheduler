@@ -58,5 +58,10 @@ export default {
   task_group_option: '任务组配置',
   task_group_queue: '任务组队列',
   task_result: '任务结果',
-  rule: '规则管理'
+  rule: '规则管理',
+  system: '系统管理',
+  system_user_manage: '用户管理',
+  system_permission_manage: '用户权限管理',
+  system_info_manage: '系统信息管理',
+  system_agent_manage: '运行状态管理'
 }

@@ -58,5 +58,10 @@ export default {
   task_group_queue: 'Task Group Queue',
   task_result: 'Task Result',
   rule: 'Rule management',
-  ui_setting: 'UI Setting'
+  ui_setting: 'UI Setting',
+  system: 'System',
+  system_user_manage: 'User Management',
+  system_permission_manage: 'User Permission Management',
+  system_info_manage: 'System Info Management',
+  system_agent_manage: 'Agent Status Management'
 }

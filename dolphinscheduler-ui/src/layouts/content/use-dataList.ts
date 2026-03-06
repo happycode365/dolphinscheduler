@@ -44,7 +44,8 @@ import {
   SafetyOutlined,
   GroupOutlined,
   CloudServerOutlined,
-  ClusterOutlined
+  ClusterOutlined,
+  SolutionOutlined
 } from '@vicons/antd'
 import { useRoute } from 'vue-router'
 import { useUserStore } from '@/store/user/user'
@@ -306,6 +307,29 @@ export function useDataList() {
                   icon: renderIcon(SafetyOutlined)
                 }
               ]
+      },
+      {
+        label: () => h(NEllipsis, null, { default: () => t('menu.system') }),
+        key: 'system',
+        icon: renderIcon(SolutionOutlined),
+        children: [
+          {
+            label: t('menu.system_user_manage'),
+            key: '/system/user-manage'
+          },
+          {
+            label: t('menu.system_permission_manage'),
+            key: '/system/permission-manage'
+          },
+          {
+            label: t('menu.system_info_manage'),
+            key: '/system/info-manage'
+          },
+          {
+            label: t('menu.system_agent_manage'),
+            key: '/system/agent-manage'
+          }
+        ]
       }
     ]
   }

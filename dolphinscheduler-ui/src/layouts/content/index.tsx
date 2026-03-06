@@ -15,10 +15,11 @@
  * limitations under the License.
  */
 
-import { defineComponent, onMounted, watch, toRefs, ref } from 'vue'
+import { defineComponent, onMounted, watch, toRefs, ref, KeepAlive } from 'vue'
 import { NLayout, NLayoutContent, NLayoutHeader, useMessage } from 'naive-ui'
 import NavBar from './components/navbar'
 import SideBar from './components/sidebar'
+import Tabs from './components/tabs'
 import { useDataList } from './use-dataList'
 import { useLocalesStore } from '@/store/locales/locales'
 import { useRouteStore } from '@/store/route/route'
@@ -51,11 +52,8 @@ const Content = defineComponent({
     })
 
     const getSideMenu = (state: any) => {
-      const key = route.meta.activeMenu
-      state.sideMenuOptions =
-        state.menuOptions.filter((menu: { key: string }) => menu.key === key)[0]
-          ?.children || state.menuOptions
-      state.isShowSide = route.meta.showSide
+      state.sideMenuOptions = state.menuOptions
+      state.isShowSide = true
     }
 
     watch(useI18n().locale, () => {
@@ -106,25 +104,30 @@ const Content = defineComponent({
         <NLayoutHeader style='height: 65px'>
           <NavBar
             class='tab-horizontal'
-            headerMenuOptions={this.headerMenuOptions}
+            headerMenuOptions={[]}
             localesOptions={this.localesOptions}
             timezoneOptions={this.timezoneOptions}
             userDropdownOptions={this.userDropdownOptions}
           />
         </NLayoutHeader>
         <NLayout has-sider position='absolute' style='top: 65px'>
-          {this.isShowSide && (
-            <SideBar
-              sideMenuOptions={this.sideMenuOptions}
-              sideKey={this.sideKeyRef}
-            />
-          )}
+          <SideBar
+            sideMenuOptions={this.sideMenuOptions}
+            sideKey={this.sideKeyRef}
+          />
           <NLayoutContent
             native-scrollbar={false}
             style='padding: 16px 22px'
-            contentStyle={'height: 100%'}
+            contentStyle={'height: 100%; display: flex; flex-direction: column;'}
           >
-            <router-view key={this.currentRoute.fullPath} />
+            <Tabs />
+            <router-view v-slots={{
+              default: ({ Component }: any) => (
+                <KeepAlive>
+                  {Component}
+                </KeepAlive>
+              )
+            }} />
           </NLayoutContent>
         </NLayout>
       </NLayout>
