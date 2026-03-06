@@ -33,13 +33,7 @@ const Sidebar = defineComponent({
   },
   setup() {
     const collapsedRef = ref(false)
-    const defaultExpandedKeys = [
-      'workflow',
-      'task',
-      'service-manage',
-      'statistical-manage',
-      'task-group-manage'
-    ]
+    const defaultExpandedKeys = []
 
     const { handleMenuClick } = useMenuClick()
 

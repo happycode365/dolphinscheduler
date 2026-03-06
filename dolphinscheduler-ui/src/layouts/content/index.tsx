@@ -15,13 +15,15 @@
  * limitations under the License.
  */
 
-import { defineComponent, onMounted, watch, toRefs, ref } from 'vue'
+import { defineComponent, onMounted, watch, toRefs, ref, KeepAlive } from 'vue'
 import { NLayout, NLayoutContent, NLayoutHeader, useMessage } from 'naive-ui'
 import NavBar from './components/navbar'
 import SideBar from './components/sidebar'
+import Tabs from './components/tabs'
 import { useDataList } from './use-dataList'
 import { useLocalesStore } from '@/store/locales/locales'
 import { useRouteStore } from '@/store/route/route'
+import { useTabStore } from '@/store/tab'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 
@@ -31,9 +33,10 @@ const Content = defineComponent({
     window.$message = useMessage()
 
     const route = useRoute()
-    const { locale } = useI18n()
+    const { locale, t } = useI18n()
     const localesStore = useLocalesStore()
     const routeStore = useRouteStore()
+    const tabStore = useTabStore()
     const {
       state,
       changeMenuOption,
@@ -51,11 +54,8 @@ const Content = defineComponent({
     })
 
     const getSideMenu = (state: any) => {
-      const key = route.meta.activeMenu
-      state.sideMenuOptions =
-        state.menuOptions.filter((menu: { key: string }) => menu.key === key)[0]
-          ?.children || state.menuOptions
-      state.isShowSide = route.meta.showSide
+      state.sideMenuOptions = state.menuOptions
+      state.isShowSide = true
     }
 
     watch(useI18n().locale, () => {
@@ -71,10 +71,15 @@ const Content = defineComponent({
         if (route.path !== '/login') {
           routeStore.setLastRoute(route.path)
 
-          state.isShowSide = route.meta.showSide as boolean
-          if (route.matched[1].path === '/projects/:projectCode') {
+          state.isShowSide = true
+          if (route.matched[1] && route.matched[1].path === '/projects/:projectCode') {
             changeMenuOption(state)
           }
+
+          tabStore.addTab({
+            path: route.fullPath,
+            label: route.meta.title ? t(route.meta.title as string) : (route.name as string)
+          })
 
           getSideMenu(state)
           const currentSide = (
@@ -121,10 +126,21 @@ const Content = defineComponent({
           )}
           <NLayoutContent
             native-scrollbar={false}
-            style='padding: 16px 22px'
-            contentStyle={'height: 100%'}
+            style='padding: 0'
+            contentStyle={'height: 100%; display: flex; flex-direction: column;'}
           >
-            <router-view key={this.currentRoute.fullPath} />
+            <Tabs />
+            <div style='flex: 1; padding: 16px 22px; overflow: auto;'>
+              <router-view
+                v-slots={{
+                  default: ({ Component, route }: any) => (
+                    <KeepAlive>
+                      <Component key={route.fullPath} />
+                    </KeepAlive>
+                  )
+                }}
+              />
+            </div>
           </NLayoutContent>
         </NLayout>
       </NLayout>

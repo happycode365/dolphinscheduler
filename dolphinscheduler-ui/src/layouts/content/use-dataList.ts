@@ -44,7 +44,8 @@ import {
   SafetyOutlined,
   GroupOutlined,
   CloudServerOutlined,
-  ClusterOutlined
+  ClusterOutlined,
+  SolutionOutlined
 } from '@vicons/antd'
 import { useRoute } from 'vue-router'
 import { useUserStore } from '@/store/user/user'
@@ -87,7 +88,18 @@ export function useDataList() {
   const changeMenuOption = (state: any) => {
     const projectCode = route.params.projectCode || ''
     const projectName = route.query.projectName || ''
-    state.menuOptions = [
+    const userInfo = userStore.getUserInfo as UserInfoRes
+    const userPermissions = (userInfo as any).permissions || [
+      'home',
+      'projects',
+      'resource',
+      'datasource',
+      'monitor',
+      'security',
+      'system'
+    ]
+
+    const allOptions = [
       {
         label: () => h(NEllipsis, null, { default: () => t('menu.home') }),
         key: 'home',
@@ -306,8 +318,35 @@ export function useDataList() {
                   icon: renderIcon(SafetyOutlined)
                 }
               ]
+      },
+      {
+        label: () => h(NEllipsis, null, { default: () => t('menu.system_management') }),
+        key: 'system',
+        icon: renderIcon(SolutionOutlined),
+        children: [
+          {
+            label: t('menu.user_manage'),
+            key: '/system/user-manage'
+          },
+          {
+            label: t('menu.user_permission_manage'),
+            key: '/system/permission-manage'
+          },
+          {
+            label: t('menu.system_info_manage'),
+            key: '/system/info-manage'
+          },
+          {
+            label: t('menu.agent_status_manage'),
+            key: '/system/agent-status'
+          }
+        ]
       }
     ]
+
+    state.menuOptions = allOptions.filter((option: any) =>
+      userPermissions.includes(option.key)
+    )
   }
 
   const changeHeaderMenuOptions = (state: any) => {

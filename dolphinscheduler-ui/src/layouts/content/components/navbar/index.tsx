@@ -74,14 +74,7 @@ const Navbar = defineComponent({
     return (
       <div class={styles.container}>
         <Logo />
-        <div class={styles.nav}>
-          <NMenu
-            value={this.menuKey}
-            mode='horizontal'
-            options={this.headerMenuOptions}
-            onUpdateValue={this.handleMenuClick}
-          />
-        </div>
+        <div class={styles.nav}></div>
         <div class={styles.settings}>
           <NButton quaternary onClick={this.handleUISettingClick}>
             {{
