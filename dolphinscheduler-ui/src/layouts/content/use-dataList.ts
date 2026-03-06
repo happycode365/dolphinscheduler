@@ -309,24 +309,24 @@ export function useDataList() {
               ]
       },
       {
-        label: () => h(NEllipsis, null, { default: () => t('menu.system') }),
+        label: () => h(NEllipsis, null, { default: () => t('menu.system_manage') }),
         key: 'system',
         icon: renderIcon(SolutionOutlined),
         children: [
           {
-            label: t('menu.system_user_manage'),
+            label: t('menu.user_manage'),
             key: '/system/user-manage'
           },
           {
-            label: t('menu.system_permission_manage'),
+            label: t('menu.permission_manage'),
             key: '/system/permission-manage'
           },
           {
-            label: t('menu.system_info_manage'),
+            label: t('menu.info_manage'),
             key: '/system/info-manage'
           },
           {
-            label: t('menu.system_agent_manage'),
+            label: t('menu.agent_manage'),
             key: '/system/agent-manage'
           }
         ]

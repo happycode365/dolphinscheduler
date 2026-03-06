@@ -40,7 +40,8 @@ export const useTabStore = defineStore('tab', {
       if (index !== -1) {
         this.tabs.splice(index, 1)
         if (this.activeTab === path) {
-          this.activeTab = this.tabs.length > 0 ? this.tabs[this.tabs.length - 1].path : ''
+          this.activeTab =
+            this.tabs.length > 0 ? this.tabs[this.tabs.length - 1].path : ''
         }
       }
     },

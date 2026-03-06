@@ -15,6 +15,6 @@
  * limitations under the License.
  */
 
-import Master from '@/views/monitor/servers/master'
+import Worker from '@/views/monitor/servers/worker'
 
-export default Master
+export default Worker

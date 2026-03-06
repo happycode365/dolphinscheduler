@@ -60,8 +60,9 @@ export default {
   rule: 'Rule management',
   ui_setting: 'UI Setting',
   system: 'System',
-  system_user_manage: 'User Management',
-  system_permission_manage: 'User Permission Management',
-  system_info_manage: 'System Info Management',
-  system_agent_manage: 'Agent Status Management'
+  system_manage: 'System Management',
+  user_manage: 'User Management',
+  permission_manage: 'User Permission Management',
+  info_manage: 'System Info Management',
+  agent_manage: 'Agent Status Management'
 }

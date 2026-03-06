@@ -15,6 +15,6 @@
  * limitations under the License.
  */
 
-import AuthorizeModal from '@/views/security/user-manage/components/authorize-modal'
+import UsersManage from '@/views/security/user-manage'
 
-export default AuthorizeModal
+export default UsersManage

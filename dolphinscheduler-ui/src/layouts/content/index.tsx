@@ -118,16 +118,18 @@ const Content = defineComponent({
           <NLayoutContent
             native-scrollbar={false}
             style='padding: 16px 22px'
-            contentStyle={'height: 100%; display: flex; flex-direction: column;'}
+            contentStyle={
+              'height: 100%; display: flex; flex-direction: column;'
+            }
           >
             <Tabs />
-            <router-view v-slots={{
-              default: ({ Component }: any) => (
-                <KeepAlive>
-                  {Component}
-                </KeepAlive>
-              )
-            }} />
+            <router-view
+              v-slots={{
+                default: ({ Component }: any) => (
+                  <KeepAlive>{Component}</KeepAlive>
+                )
+              }}
+            />
           </NLayoutContent>
         </NLayout>
       </NLayout>

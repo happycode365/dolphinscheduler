@@ -60,8 +60,9 @@ export default {
   task_result: '任务结果',
   rule: '规则管理',
   system: '系统管理',
-  system_user_manage: '用户管理',
-  system_permission_manage: '用户权限管理',
-  system_info_manage: '系统信息管理',
-  system_agent_manage: '运行状态管理'
+  system_manage: '系统管理',
+  user_manage: '用户管理',
+  permission_manage: '用户权限管理',
+  info_manage: '系统信息管理',
+  agent_manage: '运行状态管理'
 }

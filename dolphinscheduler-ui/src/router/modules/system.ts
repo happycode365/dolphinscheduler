@@ -24,7 +24,7 @@ const components: { [key: string]: Component } = utils.mapping(modules)
 export default {
   path: '/system',
   name: 'system',
-  meta: { title: '시스템 관리' },
+  meta: { title: 'menu.system_manage' },
   redirect: { name: 'system-user-manage' },
   component: () => import('@/layouts/content'),
   children: [
@@ -33,7 +33,7 @@ export default {
       name: 'system-user-manage',
       component: components['system-user-manage'],
       meta: {
-        title: '사용자 관리',
+        title: 'menu.user_manage',
         activeMenu: 'system',
         showSide: true,
         auth: ['ADMIN_USER']
@@ -44,7 +44,7 @@ export default {
       name: 'system-permission-manage',
       component: components['system-permission-manage'],
       meta: {
-        title: '사용자 권한 관리',
+        title: 'menu.permission_manage',
         activeMenu: 'system',
         showSide: true,
         auth: ['ADMIN_USER']
@@ -55,7 +55,7 @@ export default {
       name: 'system-info-manage',
       component: components['system-info-manage'],
       meta: {
-        title: '시스템 정보 관리',
+        title: 'menu.info_manage',
         activeMenu: 'system',
         showSide: true,
         auth: ['ADMIN_USER']
@@ -66,7 +66,7 @@ export default {
       name: 'system-agent-manage',
       component: components['system-agent-manage'],
       meta: {
-        title: '에이전트 상태 관리',
+        title: 'menu.agent_manage',
         activeMenu: 'system',
         showSide: true,
         auth: ['ADMIN_USER']
