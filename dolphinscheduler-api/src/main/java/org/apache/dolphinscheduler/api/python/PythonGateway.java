@@ -79,7 +79,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -150,7 +150,7 @@ public class PythonGateway {
     @Autowired
     private ProjectUserMapper projectUserMapper;
 
-    // TODO replace this user to build in admin user if we make sure build in one could not be change
+    // TODO 관리자 사용자가 변경되지 않는 것이 확실해지면 이 사용자를 내장 관리자 사용자로 교체하십시오.
     private final User dummyAdminUser = new User() {
 
         {
@@ -172,8 +172,8 @@ public class PythonGateway {
         return "PONG";
     }
 
-    // TODO Should we import package in python client side? utils package can but service can not, why
-    // Core api
+    // TODO 파이썬 클라이언트 측에서 패키지를 임포트해야 합니까? utils 패키지는 가능하지만 service는 불가능합니다. 이유가 무엇입니까?
+    // 핵심 API
     public Map<String, Object> genTaskCodeList(Integer genNum) {
         return taskDefinitionService.genTaskCodeList(genNum);
     }

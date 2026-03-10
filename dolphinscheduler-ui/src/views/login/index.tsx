@@ -26,7 +26,7 @@ import styles from './index.module.scss'
 import {
   NInput,
   NButton,
-  NSwitch,
+  NDropdown,
   NForm,
   NFormItem,
   useMessage,
@@ -105,20 +105,34 @@ const login = defineComponent({
     }
   },
   render() {
+    const options = [
+      {
+        label: 'English',
+        key: 'en_US'
+      },
+      {
+        label: '中文',
+        key: 'zh_CN'
+      },
+      {
+        label: '한국어',
+        key: 'ko_KR'
+      }
+    ]
+    const currentLabel =
+      options.find((opt) => opt.key === this.localesStore.getLocales)?.label ||
+      this.localesStore.getLocales
+
     return (
       <div class={styles.container}>
         <div class={styles['language-switch']}>
-          <NSwitch
-            onUpdateValue={this.handleChange}
-            default-value={this.localesStore.getLocales}
-            checked-value='en_US'
-            unchecked-value='zh_CN'
+          <NDropdown
+            trigger='click'
+            onSelect={this.handleChange}
+            options={options}
           >
-            {{
-              checked: () => 'en_US',
-              unchecked: () => 'zh_CN'
-            }}
-          </NSwitch>
+            <NButton>{currentLabel}</NButton>
+          </NDropdown>
         </div>
         <div class={styles['login-model']}>
           <div class={styles.logo}>
