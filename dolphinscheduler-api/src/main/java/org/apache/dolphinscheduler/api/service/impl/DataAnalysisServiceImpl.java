@@ -218,8 +218,8 @@ public class DataAnalysisServiceImpl extends BaseServiceImpl implements DataAnal
     @Override
     public Map<String, Integer> countQueueState(User loginUser) {
 
-        // TODO need to add detail data info
-        // todo: refactor this method, don't use Map
+        // TODO 세부 데이터 정보를 추가해야 함
+        // todo: 이 메서드를 리팩토링하고 Map을 사용하지 마십시오.
         Map<String, Integer> dataMap = new HashMap<>();
         dataMap.put("taskQueue", 0);
         dataMap.put("taskKill", 0);

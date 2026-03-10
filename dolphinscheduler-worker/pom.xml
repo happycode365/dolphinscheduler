@@ -132,8 +132,8 @@
                     <artifactId>guice-servlet</artifactId>
                 </exclusion>
                 <exclusion>
-                    <groupId>javax.inject</groupId>
-                    <artifactId>javax.inject</artifactId>
+                    <groupId>jakarta.inject</groupId>
+                    <artifactId>jakarta.inject-api</artifactId>
                 </exclusion>
                 <exclusion>
                     <groupId>com.sun.xml.bind</groupId>
@@ -148,7 +148,7 @@
                     <artifactId>jersey-client</artifactId>
                 </exclusion>
                 <exclusion>
-                    <groupId>javax.ws.rs</groupId>
+                    <groupId>jakarta.ws.rs</groupId>
                     <artifactId>jsr311-api</artifactId>
                 </exclusion>
                 <exclusion>

@@ -37,7 +37,7 @@ interface Options {
 }
 
 /**
- * Change the style on cell hover and select
+ * 셀 호버 및 선택 시 스타일 변경
  */
 export function useCellActive(options: Options) {
   const { graph } = options

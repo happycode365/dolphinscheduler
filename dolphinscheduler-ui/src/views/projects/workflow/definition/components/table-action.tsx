@@ -124,7 +124,7 @@ export default defineComponent({
                 onClick={this.handleEditWorkflow}
                 disabled={releaseState === 'ONLINE'}
                 class='btn-edit'
-                /* TODO: Edit workflow */
+                /* TODO: 워크플로우 편집 */
               >
                 <NIcon>
                   <FormOutlined />
