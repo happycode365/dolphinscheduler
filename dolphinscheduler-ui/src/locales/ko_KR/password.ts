@@ -16,12 +16,12 @@
  */
 
 export default {
-  edit_password: 'Edit Password',
-  password: 'Password',
-  confirm_password: 'Confirm Password',
-  password_tips: 'Please enter your password',
-  confirm_password_tips: 'Please enter your confirm password',
+  edit_password: '비밀번호 변경',
+  password: '비밀번호',
+  confirm_password: '비밀번호 확인',
+  password_tips: '비밀번호를 입력하세요',
+  confirm_password_tips: '확인 비밀번호를 입력하세요',
   two_password_entries_are_inconsistent:
-    'Two password entries are inconsistent',
-  submit: 'Submit'
+    '두 비밀번호가 일치하지 않습니다',
+  submit: '제출'
 }

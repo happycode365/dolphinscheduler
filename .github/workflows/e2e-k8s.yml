@@ -51,6 +51,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: 17
+          distribution: "adopt"
       - run: df -h
       - name: "node-cleanup"
         run: |

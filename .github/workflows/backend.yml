@@ -53,7 +53,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        java: [ '8', '11' ]
+        java: [ '17' ]
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
@@ -84,7 +84,7 @@ jobs:
       - name: Check dependency license
         run: tools/dependencies/check-LICENSE.sh
       - uses: actions/upload-artifact@v4
-        if: ${{ matrix.java == '8' }}
+        if: ${{ matrix.java == '17' }}
         name: Upload Binary Package
         with:
           name: binary-package-${{ matrix.java }}
@@ -124,8 +124,8 @@ jobs:
       - uses: actions/download-artifact@v4
         name: Download Binary Package
         with:
-          # Only run cluster test on jdk8
-          name: binary-package-8
+          # Only run cluster test on jdk17
+          name: binary-package-17
           path: ./
       - name: Running cluster test
         run: |
@@ -155,7 +155,7 @@ jobs:
       - name: Download Binary Package
         uses: actions/download-artifact@v4
         with:
-          name: binary-package-8
+          name: binary-package-17
           path: ds_schema_check_test/dev
       - name: Running Schema Check
         run: |

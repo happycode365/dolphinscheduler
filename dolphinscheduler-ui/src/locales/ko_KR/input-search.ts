@@ -16,5 +16,5 @@
  */
 
 export default {
-  placeholder: 'Please enter keyword'
+  placeholder: '키워드를 입력하세요'
 }

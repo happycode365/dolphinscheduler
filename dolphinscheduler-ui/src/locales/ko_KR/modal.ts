@@ -16,6 +16,6 @@
  */
 
 export default {
-  cancel: 'Cancel',
-  confirm: 'Confirm'
+  cancel: '취소',
+  confirm: '확인'
 }

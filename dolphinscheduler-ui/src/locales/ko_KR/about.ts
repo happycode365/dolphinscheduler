@@ -16,6 +16,6 @@
  */
 
 export default {
-  about: 'About',
-  about_version: 'Product Version'
+  about: '정보',
+  about_version: '제품 버전'
 }

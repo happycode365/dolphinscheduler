@@ -17,74 +17,74 @@
 
 export default {
   master: {
-    cpu_usage: 'CPU Usage',
-    memory_usage: 'Memory Usage',
-    disk_usage: 'Disk Usage',
-    create_time: 'Create Time',
-    last_heartbeat_time: 'Last Heartbeat Time',
-    directory_detail: 'Directory Detail',
-    host: 'Host',
-    directory: 'Directory',
-    master_no_data_result_title: 'No Master Nodes Exist',
+    cpu_usage: 'CPU 사용률',
+    memory_usage: '메모리 사용률',
+    disk_usage: '디스크 사용률',
+    create_time: '생성 시간',
+    last_heartbeat_time: '마지막 하트비트 시간',
+    directory_detail: '디렉토리 상세',
+    host: '호스트',
+    directory: '디렉토리',
+    master_no_data_result_title: '마스터 노드가 존재하지 않습니다',
     master_no_data_result_desc:
-      'Currently, there are no master nodes exist, please create a master node and refresh this page'
+      '현재 마스터 노드가 없습니다. 마스터 노드를 생성하고 이 페이지를 새로고침하세요'
   },
   worker: {
-    cpu_usage: 'CPU Usage',
-    memory_usage: 'Memory Usage',
-    disk_usage: 'Disk Usage',
-    thread_pool_usage: 'Thread Pool Usage',
-    create_time: 'Create Time',
-    last_heartbeat_time: 'Last Heartbeat Time',
-    directory_detail: 'Directory Detail',
-    host: 'Host',
-    directory: 'Directory',
-    worker_no_data_result_title: 'No Worker Nodes Exist',
+    cpu_usage: 'CPU 사용률',
+    memory_usage: '메모리 사용률',
+    disk_usage: '디스크 사용률',
+    thread_pool_usage: '스레드 풀 사용률',
+    create_time: '생성 시간',
+    last_heartbeat_time: '마지막 하트비트 시간',
+    directory_detail: '디렉토리 상세',
+    host: '호스트',
+    directory: '디렉토리',
+    worker_no_data_result_title: '워커 노드가 존재하지 않습니다',
     worker_no_data_result_desc:
-      'Currently, there are no worker nodes exist, please create a worker node and refresh this page'
+      '현재 워커 노드가 없습니다. 워커 노드를 생성하고 이 페이지를 새로고침하세요'
   },
   alert_server: {
-    alert_server_no_data_result_title: 'No Alert Server Nodes Exist',
+    alert_server_no_data_result_title: '알람 서버 노드가 존재하지 않습니다',
     alert_server_no_data_result_desc:
-      'Currently, there are no alert server nodes exist, please create a alert server node and refresh this page'
+      '현재 알람 서버 노드가 없습니다. 알람 서버 노드를 생성하고 이 페이지를 새로고침하세요'
   },
   db: {
-    health_state: 'Health State',
-    max_connections: 'Max Connections',
-    threads_connections: 'Threads Connections',
-    threads_running_connections: 'Threads Running Connections',
-    db_no_data_result_title: 'No DB Nodes Exist',
+    health_state: '건강 상태',
+    max_connections: '최대 연결 수',
+    threads_connections: '스레드 연결 수',
+    threads_running_connections: '실행 중인 스레드 연결 수',
+    db_no_data_result_title: 'DB 노드가 존재하지 않습니다',
     db_no_data_result_desc:
-      'Currently, there are no DB nodes exist, please create a DB node and refresh this page'
+      '현재 DB 노드가 없습니다. DB 노드를 생성하고 이 페이지를 새로고침하세요'
   },
   statistics: {
-    command_statistics_list: 'Command Statistics List',
-    failure_command_statistics_list: 'Failure Command Statistics List',
-    command_type: 'Command Type',
-    command_param: 'Command Param',
-    task_info: 'Task Info',
-    task_params: 'Task Params',
-    worker_info: 'Worker Info',
-    warning_info: 'Warning Info',
-    executor_id: 'Executor Id',
-    message: 'Message',
-    time: 'Time'
+    command_statistics_list: '명령 통계 목록',
+    failure_command_statistics_list: '실패 명령 통계 목록',
+    command_type: '명령 유형',
+    command_param: '명령 파라미터',
+    task_info: '태스크 정보',
+    task_params: '태스크 파라미터',
+    worker_info: '워커 정보',
+    warning_info: '경고 정보',
+    executor_id: '실행자 ID',
+    message: '메시지',
+    time: '시간'
   },
   audit_log: {
-    user_name: 'User Name',
-    operation_type: 'Operation Type',
-    model_type: 'Model Type',
-    model_name: 'Model Name',
-    latency: 'Latency',
-    description: 'Description',
-    create_time: 'Create Time',
-    start_time: 'Start Time',
-    end_time: 'End Time',
-    user_audit: 'User Audit',
-    project_audit: 'Project Audit',
-    create: 'Create',
-    update: 'Update',
-    delete: 'Delete',
-    read: 'Read'
+    user_name: '사용자명',
+    operation_type: '작업 유형',
+    model_type: '모델 유형',
+    model_name: '모델명',
+    latency: '지연 시간',
+    description: '설명',
+    create_time: '생성 시간',
+    start_time: '시작 시간',
+    end_time: '종료 시간',
+    user_audit: '사용자 감사',
+    project_audit: '프로젝트 감사',
+    create: '생성',
+    update: '업데이트',
+    delete: '삭제',
+    read: '읽기'
   }
 }

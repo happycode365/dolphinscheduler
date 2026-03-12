@@ -21,7 +21,7 @@ import { LocalesStore, Locales } from './types'
 export const useLocalesStore = defineStore({
   id: 'locales',
   state: (): LocalesStore => ({
-    locales: 'zh_CN'
+    locales: 'ko_KR'
   }),
   persist: true,
   getters: {

@@ -1,0 +1,15 @@
+Lockfile is up to date, resolution step is skipped
+Already up to date
+
+   ╭───────────────────────────────────────────────────────────────────╮
+   │                                                                   │
+   │                Update available! 7.33.7 → 10.32.1.                │
+   │   Changelog: https://github.com/pnpm/pnpm/releases/tag/v10.32.1   │
+   │                 Run "pnpm add -g pnpm" to update.                 │
+   │                                                                   │
+   │      Follow @pnpmjs for updates: https://twitter.com/pnpmjs       │
+   │                                                                   │
+   ╰───────────────────────────────────────────────────────────────────╯
+
+
+Done in 2s

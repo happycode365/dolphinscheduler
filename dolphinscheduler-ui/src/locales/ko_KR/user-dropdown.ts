@@ -16,8 +16,8 @@
  */
 
 export default {
-  profile: 'Profile',
-  password: 'Password',
-  about: 'About',
-  logout: 'Logout'
+  profile: '프로필',
+  password: '비밀번호',
+  about: '정보',
+  logout: '로그아웃'
 }

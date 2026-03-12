@@ -76,7 +76,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 /**
- * users service impl
+ * 사용자 서비스 구현체
  */
 @Service
 @Slf4j
@@ -116,17 +116,17 @@ public class UsersServiceImpl extends BaseServiceImpl implements UsersService {
     private SessionService sessionService;
 
     /**
-     * create user, only system admin have permission
+     * 사용자를 생성합니다. 시스템 관리자만 권한이 있습니다.
      *
-     * @param loginUser    login user
-     * @param userName     user name
-     * @param userPassword user password
-     * @param email        email
-     * @param tenantId     tenant id
-     * @param phone        phone
-     * @param queue        queue
-     * @return create result code
-     * @throws Exception exception
+     * @param loginUser    로그인 사용자
+     * @param userName     사용자 이름
+     * @param userPassword 사용자 비밀번호
+     * @param email        이메일
+     * @param tenantId     테넌트 ID
+     * @param phone        전화번호
+     * @param queue        큐
+     * @return 생성 결과 코드
+     * @throws Exception 예외
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -224,10 +224,10 @@ public class UsersServiceImpl extends BaseServiceImpl implements UsersService {
     }
 
     /**
-     * get user by user name
+     * 사용자 이름으로 사용자를 조회합니다.
      *
-     * @param userName user name
-     * @return exist user or null
+     * @param userName 사용자 이름
+     * @return 존재하는 사용자 또는 null
      */
     @Override
     public User getUserByUserName(String userName) {
@@ -235,10 +235,10 @@ public class UsersServiceImpl extends BaseServiceImpl implements UsersService {
     }
 
     /**
-     * query user by id
+     * ID로 사용자를 조회합니다.
      *
-     * @param id id
-     * @return user info
+     * @param id ID
+     * @return 사용자 정보
      */
     @Override
     public User queryUser(int id) {
@@ -254,10 +254,10 @@ public class UsersServiceImpl extends BaseServiceImpl implements UsersService {
     }
 
     /**
-     * query user
+     * 이름으로 사용자를 조회합니다.
      *
-     * @param name name
-     * @return user info
+     * @param name 이름
+     * @return 사용자 정보
      */
     @Override
     public User queryUser(String name) {
@@ -265,11 +265,11 @@ public class UsersServiceImpl extends BaseServiceImpl implements UsersService {
     }
 
     /**
-     * query user
+     * 이름과 비밀번호로 사용자를 조회합니다.
      *
-     * @param name     name
-     * @param password password
-     * @return user info
+     * @param name     이름
+     * @param password 비밀번호
+     * @return 사용자 정보
      */
     @Override
     public User queryUser(String name, String password) {
@@ -278,10 +278,10 @@ public class UsersServiceImpl extends BaseServiceImpl implements UsersService {
     }
 
     /**
-     * get user id by user name
+     * 사용자 이름으로 사용자 ID를 가져옵니다.
      *
-     * @param name user name
-     * @return if name empty 0, user not exists -1, user exist user id
+     * @param name 사용자 이름
+     * @return 이름이 비어 있으면 0, 사용자가 존재하지 않으면 -1, 존재하면 사용자 ID
      */
     @Override
     public int getUserIdByName(String name) {
@@ -300,13 +300,13 @@ public class UsersServiceImpl extends BaseServiceImpl implements UsersService {
     }
 
     /**
-     * query user list
+     * 사용자 목록을 조회합니다.
      *
-     * @param loginUser login user
-     * @param pageNo    page number
-     * @param searchVal search value
-     * @param pageSize  page size
-     * @return user list page
+     * @param loginUser 로그인 사용자
+     * @param pageNo    페이지 번호
+     * @param searchVal 검색어
+     * @param pageSize  페이지 크기
+     * @return 사용자 목록 페이지
      */
     @Override
     public Result<Object> queryUserList(User loginUser, String searchVal, Integer pageNo, Integer pageSize) {
@@ -436,12 +436,12 @@ public class UsersServiceImpl extends BaseServiceImpl implements UsersService {
     }
 
     /**
-     * delete user
+     * 사용자를 삭제합니다.
      *
-     * @param loginUser login user
-     * @param id        user id
-     * @return delete result code
-     * @throws Exception exception when operate hdfs
+     * @param loginUser 로그인 사용자
+     * @param id        사용자 ID
+     * @return 삭제 결과 코드
+     * @throws Exception 예외
      */
     @Override
     @Transactional
@@ -490,12 +490,12 @@ public class UsersServiceImpl extends BaseServiceImpl implements UsersService {
     }
 
     /**
-     * revoke the project permission for specified user by id
+     * ID로 지정된 사용자의 프로젝트 권한을 철회합니다.
      *
-     * @param loginUser  Login user
-     * @param userId     User id
-     * @param projectIds project id array
-     * @return
+     * @param loginUser  로그인 사용자
+     * @param userId     사용자 ID
+     * @param projectIds 프로젝트 ID 배열
+     * @return 결과 맵
      */
     @Override
     @Transactional(rollbackFor = RuntimeException.class)
@@ -531,12 +531,12 @@ public class UsersServiceImpl extends BaseServiceImpl implements UsersService {
     }
 
     /**
-     * grant project with read permission
+     * 프로젝트에 읽기 권한을 부여합니다.
      *
-     * @param loginUser  login user
-     * @param userId     user id
-     * @param projectIds project id array
-     * @return grant result code
+     * @param loginUser  로그인 사용자
+     * @param userId     사용자 ID
+     * @param projectIds 프로젝트 ID 배열
+     * @return 부여 결과 코드
      */
     @Override
     @Transactional(rollbackFor = RuntimeException.class)
@@ -579,12 +579,12 @@ public class UsersServiceImpl extends BaseServiceImpl implements UsersService {
     }
 
     /**
-     * grant project
+     * 프로젝트 권한을 부여합니다.
      *
-     * @param loginUser  login user
-     * @param userId     user id
-     * @param projectIds project id array
-     * @return grant result code
+     * @param loginUser  로그인 사용자
+     * @param userId     사용자 ID
+     * @param projectIds 프로젝트 ID 배열
+     * @return 부여 결과 코드
      */
     @Override
     @Transactional
@@ -629,12 +629,12 @@ public class UsersServiceImpl extends BaseServiceImpl implements UsersService {
     }
 
     /**
-     * grant project by code
+     * 코드로 프로젝트 권한을 부여합니다.
      *
-     * @param loginUser   login user
-     * @param userId      user id
-     * @param projectCode project code
-     * @return grant result code
+     * @param loginUser   로그인 사용자
+     * @param userId      사용자 ID
+     * @param projectCode 프로젝트 코드
+     * @return 부여 결과 코드
      */
     @Override
     public Map<String, Object> grantProjectByCode(final User loginUser, final int userId, final long projectCode) {
@@ -683,12 +683,12 @@ public class UsersServiceImpl extends BaseServiceImpl implements UsersService {
     }
 
     /**
-     * revoke the project permission for specified user.
+     * 지정된 사용자의 프로젝트 권한을 철회합니다.
      *
-     * @param loginUser   Login user
-     * @param userId      User id
-     * @param projectCode Project Code
-     * @return
+     * @param loginUser   로그인 사용자
+     * @param userId      사용자 ID
+     * @param projectCode 프로젝트 코드
+     * @return 결과 맵
      */
     @Override
     public Map<String, Object> revokeProject(User loginUser, int userId, long projectCode) {
@@ -725,12 +725,12 @@ public class UsersServiceImpl extends BaseServiceImpl implements UsersService {
     }
 
     /**
-     * grant namespace
+     * 네임스페이스 권한을 부여합니다.
      *
-     * @param loginUser    login user
-     * @param userId       user id
-     * @param namespaceIds namespace id array
-     * @return grant result code
+     * @param loginUser    로그인 사용자
+     * @param userId       사용자 ID
+     * @param namespaceIds 네임스페이스 ID 배열
+     * @return 부여 결과 코드
      */
     @Override
     @Transactional
@@ -774,12 +774,12 @@ public class UsersServiceImpl extends BaseServiceImpl implements UsersService {
     }
 
     /**
-     * grant datasource
+     * 데이터 소스 권한을 부여합니다.
      *
-     * @param loginUser     login user
-     * @param userId        user id
-     * @param datasourceIds data source id array
-     * @return grant result code
+     * @param loginUser     로그인 사용자
+     * @param userId        사용자 ID
+     * @param datasourceIds 데이터 소스 ID 배열
+     * @return 부여 결과 코드
      */
     @Override
     @Transactional
@@ -824,10 +824,10 @@ public class UsersServiceImpl extends BaseServiceImpl implements UsersService {
     }
 
     /**
-     * query user info
+     * 사용자 정보를 조회합니다.
      *
-     * @param loginUser login user
-     * @return user info
+     * @param loginUser 로그인 사용자
+     * @return 사용자 정보
      */
     @Override
     public Map<String, Object> getUserInfo(User loginUser) {
@@ -873,10 +873,10 @@ public class UsersServiceImpl extends BaseServiceImpl implements UsersService {
     }
 
     /**
-     * query user list
+     * 모든 일반 사용자 목록을 조회합니다.
      *
-     * @param loginUser login user
-     * @return user list
+     * @param loginUser 로그인 사용자
+     * @return 사용자 목록
      */
     @Override
     public Map<String, Object> queryAllGeneralUsers(User loginUser) {
@@ -895,10 +895,10 @@ public class UsersServiceImpl extends BaseServiceImpl implements UsersService {
     }
 
     /**
-     * query user list
+     * 사용자 목록을 조회합니다.
      *
-     * @param loginUser login user
-     * @return user list
+     * @param loginUser 로그인 사용자
+     * @return 사용자 목록
      */
     @Override
     public Map<String, Object> queryUserList(User loginUser) {
@@ -916,10 +916,10 @@ public class UsersServiceImpl extends BaseServiceImpl implements UsersService {
     }
 
     /**
-     * verify user name exists
+     * 사용자 이름 존재 여부를 검증합니다.
      *
-     * @param userName user name
-     * @return true if user name not exists, otherwise return false
+     * @param userName 사용자 이름
+     * @return 사용자 이름이 존재하지 않으면 true를 포함한 결과 객체
      */
     @Override
     public Result<Object> verifyUserName(String userName) {
@@ -936,11 +936,11 @@ public class UsersServiceImpl extends BaseServiceImpl implements UsersService {
     }
 
     /**
-     * unauthorized user
+     * 권한이 없는 사용자를 조회합니다.
      *
-     * @param loginUser    login user
-     * @param alertgroupId alert group id
-     * @return unauthorize result code
+     * @param loginUser    로그인 사용자
+     * @param alertgroupId 알람 그룹 ID
+     * @return 결과 코드
      */
     @Override
     public Map<String, Object> unauthorizedUser(User loginUser, Integer alertgroupId) {
@@ -974,11 +974,11 @@ public class UsersServiceImpl extends BaseServiceImpl implements UsersService {
     }
 
     /**
-     * authorized user
+     * 권한이 있는 사용자를 조회합니다.
      *
-     * @param loginUser    login user
-     * @param alertGroupId alert group id
-     * @return authorized result code
+     * @param loginUser    로그인 사용자
+     * @param alertGroupId 알람 그룹 ID
+     * @return 결과 코드
      */
     @Override
     public Map<String, Object> authorizedUser(User loginUser, Integer alertGroupId) {
@@ -1059,11 +1059,11 @@ public class UsersServiceImpl extends BaseServiceImpl implements UsersService {
     }
 
     /**
-     * activate user, only system admin have permission, change user state code 0 to 1
+     * 사용자를 활성화합니다. 시스템 관리자만 권한이 있으며, 사용자 상태 코드를 0에서 1로 변경합니다.
      *
-     * @param loginUser login user
-     * @param userName  user name
-     * @return create result code
+     * @param loginUser 로그인 사용자
+     * @param userName  사용자 이름
+     * @return 결과 코드
      */
     @Override
     public Map<String, Object> activateUser(User loginUser, String userName) {
@@ -1103,11 +1103,11 @@ public class UsersServiceImpl extends BaseServiceImpl implements UsersService {
     }
 
     /**
-     * activate user, only system admin have permission, change users state code 0 to 1
+     * 사용자를 일괄 활성화합니다. 시스템 관리자만 권한이 있으며, 사용자 상태 코드를 0에서 1로 변경합니다.
      *
-     * @param loginUser login user
-     * @param userNames user name
-     * @return create result code
+     * @param loginUser 로그인 사용자
+     * @param userNames 사용자 이름 목록
+     * @return 결과 코드
      */
     @Override
     public Map<String, Object> batchActivateUser(User loginUser, List<String> userNames) {

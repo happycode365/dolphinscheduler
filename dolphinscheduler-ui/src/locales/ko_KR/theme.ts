@@ -16,6 +16,6 @@
  */
 
 export default {
-  light: 'Light',
-  dark: 'Dark'
+  light: '밝게',
+  dark: '어둡게'
 }

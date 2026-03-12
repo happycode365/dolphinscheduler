@@ -89,12 +89,12 @@ public class ProjectServiceImpl extends BaseServiceImpl implements ProjectServic
     private UserMapper userMapper;
 
     /**
-     * create project
+     * 프로젝트를 생성합니다.
      *
-     * @param loginUser login user
-     * @param name      project name
-     * @param desc      description
-     * @return returns an error if it exists
+     * @param loginUser 로그인 사용자
+     * @param name      프로젝트 이름
+     * @param desc      설명
+     * @return 에러가 있는 경우 에러를 반환합니다.
      */
     @Override
     @Transactional
@@ -142,10 +142,10 @@ public class ProjectServiceImpl extends BaseServiceImpl implements ProjectServic
     }
 
     /**
-     * check project description
+     * 프로젝트 설명을 확인합니다.
      *
-     * @param result
-     * @param desc   desc
+     * @param result 결과 객체
+     * @param desc   설명
      */
     public static void checkDesc(Result result, String desc) {
         if (!StringUtils.isEmpty(desc) && desc.codePointCount(0, desc.length()) > 255) {
@@ -157,10 +157,10 @@ public class ProjectServiceImpl extends BaseServiceImpl implements ProjectServic
     }
 
     /**
-     * query project details by code
+     * 코드로 프로젝트 상세 정보를 조회합니다.
      *
-     * @param projectCode project code
-     * @return project detail information
+     * @param projectCode 프로젝트 코드
+     * @return 프로젝트 상세 정보
      */
     @Override
     public Result queryByCode(User loginUser, long projectCode) {
@@ -193,12 +193,13 @@ public class ProjectServiceImpl extends BaseServiceImpl implements ProjectServic
     }
 
     /**
-     * check project and authorization
+     * 프로젝트 및 권한을 확인합니다.
      *
-     * @param loginUser   login user
-     * @param project     project
-     * @param projectCode project code
-     * @return true if the login user have permission to see the project
+     * @param loginUser   로그인 사용자
+     * @param project     프로젝트
+     * @param projectCode 프로젝트 코드
+     * @param permission  권한
+     * @return 로그인 사용자가 프로젝트를 볼 권한이 있는 경우 true가 포함된 결과 맵
      */
     @Override
     public Map<String, Object> checkProjectAndAuth(User loginUser, Project project, long projectCode,
@@ -355,13 +356,13 @@ public class ProjectServiceImpl extends BaseServiceImpl implements ProjectServic
     }
 
     /**
-     * admin can view all projects
+     * 프로젝트 목록을 페이징하여 조회합니다. 관리자는 모든 프로젝트를 볼 수 있습니다.
      *
-     * @param loginUser login user
-     * @param searchVal search value
-     * @param pageSize  page size
-     * @param pageNo    page number
-     * @return project list which the login user have permission to see
+     * @param loginUser 로그인 사용자
+     * @param searchVal 검색어
+     * @param pageSize  페이지 크기
+     * @param pageNo    페이지 번호
+     * @return 로그인 사용자가 볼 수 있는 권한이 있는 프로젝트 목록
      */
     @Override
     public Result queryProjectListPaging(User loginUser, Integer pageSize, Integer pageNo, String searchVal) {
@@ -410,14 +411,14 @@ public class ProjectServiceImpl extends BaseServiceImpl implements ProjectServic
     }
 
     /**
-     * admin can view all projects
+     * 권한 레벨을 포함한 프로젝트 목록을 페이징하여 조회합니다. 관리자는 모든 프로젝트를 볼 수 있습니다.
      *
-     * @param userId    user id
-     * @param loginUser login user
-     * @param searchVal search value
-     * @param pageSize  page size
-     * @param pageNo    page number
-     * @return project list which with the login user's authorized level
+     * @param userId    사용자 ID
+     * @param loginUser 로그인 사용자
+     * @param searchVal 검색어
+     * @param pageSize  페이지 크기
+     * @param pageNo    페이지 번호
+     * @return 로그인 사용자의 권한 레벨이 포함된 프로젝트 목록
      */
     @Override
     public Result queryProjectWithAuthorizedLevelListPaging(Integer userId, User loginUser, Integer pageSize,
@@ -461,11 +462,11 @@ public class ProjectServiceImpl extends BaseServiceImpl implements ProjectServic
     }
 
     /**
-     * delete project by code
+     * 코드로 프로젝트를 삭제합니다.
      *
-     * @param loginUser   login user
-     * @param projectCode project code
-     * @return delete result code
+     * @param loginUser   로그인 사용자
+     * @param projectCode 프로젝트 코드
+     * @return 삭제 결과 코드
      */
     @Override
     public Result deleteProject(User loginUser, Long projectCode) {
@@ -508,11 +509,12 @@ public class ProjectServiceImpl extends BaseServiceImpl implements ProjectServic
     }
 
     /**
-     * get check result
+     * 확인 결과를 가져옵니다.
      *
-     * @param loginUser login user
-     * @param project   project
-     * @return check result
+     * @param loginUser 로그인 사용자
+     * @param project   프로젝트
+     * @param perm      권한
+     * @return 확인 결과
      */
     private Map<String, Object> getCheckResult(User loginUser, Project project, String perm) {
         Map<String, Object> checkResult =
@@ -525,13 +527,13 @@ public class ProjectServiceImpl extends BaseServiceImpl implements ProjectServic
     }
 
     /**
-     * updateWorkflowInstance project
+     * 프로젝트 정보를 업데이트합니다.
      *
-     * @param loginUser   login user
-     * @param projectCode project code
-     * @param projectName project name
-     * @param desc        description
-     * @return update result code
+     * @param loginUser   로그인 사용자
+     * @param projectCode 프로젝트 코드
+     * @param projectName 프로젝트 이름
+     * @param desc        설명
+     * @return 업데이트 결과 코드
      */
     @Override
     public Result update(User loginUser, Long projectCode, String projectName, String desc) {
@@ -575,10 +577,11 @@ public class ProjectServiceImpl extends BaseServiceImpl implements ProjectServic
     }
 
     /**
-     * query all project with authorized level
+     * 권한 레벨이 포함된 모든 프로젝트를 조회합니다.
      *
-     * @param loginUser login user
-     * @return project list
+     * @param loginUser 로그인 사용자
+     * @param userId    조회 대상 사용자 ID
+     * @return 프로젝트 목록
      */
     @Override
     public Result queryProjectWithAuthorizedLevel(User loginUser, Integer userId) {
@@ -617,11 +620,11 @@ public class ProjectServiceImpl extends BaseServiceImpl implements ProjectServic
     }
 
     /**
-     * query unauthorized project
+     * 권한이 없는 프로젝트를 조회합니다.
      *
-     * @param loginUser login user
-     * @param userId    user id
-     * @return the projects which user have not permission to see
+     * @param loginUser 로그인 사용자
+     * @param userId    사용자 ID
+     * @return 사용자가 볼 수 있는 권한이 없는 프로젝트 목록
      */
     @Override
     public Result queryUnauthorizedProject(User loginUser, Integer userId) {
@@ -653,11 +656,11 @@ public class ProjectServiceImpl extends BaseServiceImpl implements ProjectServic
     }
 
     /**
-     * get unauthorized project
+     * 권한이 없는 프로젝트 목록을 가져옵니다.
      *
-     * @param projectSet        project set
-     * @param authedProjectList authed project list
-     * @return project list that unauthorized
+     * @param projectSet        전체 프로젝트 셋
+     * @param authedProjectList 권한이 있는 프로젝트 목록
+     * @return 권한이 없는 프로젝트 목록
      */
     private List<Project> getUnauthorizedProjects(Set<Project> projectSet, List<Project> authedProjectList) {
         List<Project> resultList;
@@ -671,11 +674,11 @@ public class ProjectServiceImpl extends BaseServiceImpl implements ProjectServic
     }
 
     /**
-     * query authorized project
+     * 권한이 있는 프로젝트를 조회합니다.
      *
-     * @param loginUser login user
-     * @param userId    user id
-     * @return projects which the user have permission to see, Except for items created by this user
+     * @param loginUser 로그인 사용자
+     * @param userId    사용자 ID
+     * @return 사용자가 생성한 항목을 제외하고 사용자가 볼 수 있는 권한이 있는 프로젝트 목록
      */
     @Override
     public Result queryAuthorizedProject(User loginUser, Integer userId) {
@@ -689,11 +692,11 @@ public class ProjectServiceImpl extends BaseServiceImpl implements ProjectServic
     }
 
     /**
-     * query authorized user
+     * 권한이 있는 사용자를 조회합니다.
      *
-     * @param loginUser   login user
-     * @param projectCode project code
-     * @return users        who have permission for the specified project
+     * @param loginUser   로그인 사용자
+     * @param projectCode 프로젝트 코드
+     * @return 지정된 프로젝트에 대한 권한이 있는 사용자 목록
      */
     @Override
     public Result queryAuthorizedUser(User loginUser, Long projectCode) {
@@ -714,10 +717,10 @@ public class ProjectServiceImpl extends BaseServiceImpl implements ProjectServic
     }
 
     /**
-     * query authorized project
+     * 사용자가 생성한 프로젝트를 조회합니다.
      *
-     * @param loginUser login user
-     * @return projects which the user have permission to see, Except for items created by this user
+     * @param loginUser 로그인 사용자
+     * @return 사용자가 생성한 프로젝트 목록
      */
     @Override
     public Map<String, Object> queryProjectCreatedByUser(User loginUser) {
@@ -731,10 +734,10 @@ public class ProjectServiceImpl extends BaseServiceImpl implements ProjectServic
     }
 
     /**
-     * query authorized and user create project list by user
+     * 사용자가 생성했거나 권한을 가진 프로젝트 목록을 조회합니다.
      *
-     * @param loginUser login user
-     * @return project list
+     * @param loginUser 로그인 사용자
+     * @return 프로젝트 목록
      */
     @Override
     public Result queryProjectCreatedAndAuthorizedByUser(User loginUser) {
@@ -756,11 +759,11 @@ public class ProjectServiceImpl extends BaseServiceImpl implements ProjectServic
     }
 
     /**
-     * check whether have read permission
+     * 읽기 권한이 있는지 확인합니다.
      *
-     * @param user    user
-     * @param project project
-     * @return true if the user have permission to see the project, otherwise return false
+     * @param user    사용자
+     * @param project 프로젝트
+     * @return 사용자가 프로젝트를 볼 권한이 있는 경우 true, 그렇지 않으면 false
      */
     private boolean checkReadPermission(User user, Project project) {
         int permissionId = queryPermission(user, project);
@@ -768,11 +771,11 @@ public class ProjectServiceImpl extends BaseServiceImpl implements ProjectServic
     }
 
     /**
-     * query permission id
+     * 권한 ID를 조회합니다.
      *
-     * @param user    user
-     * @param project project
-     * @return permission
+     * @param user    사용자
+     * @param project 프로젝트
+     * @return 권한 값
      */
     private int queryPermission(User user, Project project) {
         if (user.getUserType() == UserType.ADMIN_USER) {
@@ -794,10 +797,10 @@ public class ProjectServiceImpl extends BaseServiceImpl implements ProjectServic
     }
 
     /**
-     * query all project list
+     * 모든 프로젝트 목록을 조회합니다.
      *
-     * @param user
-     * @return project list
+     * @param user 사용자
+     * @return 프로젝트 목록
      */
     @Override
     public Result queryAllProjectList(User user) {
@@ -811,13 +814,13 @@ public class ProjectServiceImpl extends BaseServiceImpl implements ProjectServic
     }
 
     /**
-     * check project and authorization
+     * 프로젝트 및 권한을 확인합니다.
      *
-     * @param result      result
-     * @param loginUser   login user
-     * @param project     project
-     * @param projectCode project code
-     * @return true if the login user have permission to see the project
+     * @param result      결과 객체
+     * @param loginUser   로그인 사용자
+     * @param project     프로젝트
+     * @param projectCode 프로젝트 코드
+     * @param permission  권한
      */
     @Override
     public void checkProjectAndAuth(Result result, User loginUser, Project project, long projectCode,
@@ -835,9 +838,9 @@ public class ProjectServiceImpl extends BaseServiceImpl implements ProjectServic
     }
 
     /**
-     * query all project for dependent node
+     * 의존성 노드를 위한 모든 프로젝트를 조회합니다.
      *
-     * @return project list
+     * @return 프로젝트 목록
      */
     @Override
     public Result queryAllProjectListForDependent() {

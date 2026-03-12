@@ -39,11 +39,11 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: true
-      - name: Set up JDK 11
+      - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
-          java-version: 11
-          distribution: 'adopt'
+          java-version: 17
+          distribution: 'temurin'
       - name: Run OWASP Dependency Check
         run: |
           ./mvnw -B clean install verify dependency-check:check \

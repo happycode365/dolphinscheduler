@@ -23,7 +23,7 @@ import ko_KR from './ko_KR'
 const i18n = createI18n({
   legacy: false,
   globalInjection: true,
-  locale: 'zh_CN',
+  locale: 'ko_KR',
   messages: {
     zh_CN,
     en_US,
